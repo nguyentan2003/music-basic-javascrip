@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- favicon -->
+        <link
+            rel="apple-touch-icon"
+            sizes="57x57"
+            href="./assets/favicon/apple-icon-57x57.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="60x60"
+            href="./assets/favicon/apple-icon-60x60.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="72x72"
+            href="./assets/favicon/apple-icon-72x72.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="76x76"
+            href="./assets/favicon/apple-icon-76x76.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="114x114"
+            href="./assets/favicon/apple-icon-114x114.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="120x120"
+            href="./assets/favicon/apple-icon-120x120.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="144x144"
+            href="./assets/favicon/apple-icon-144x144.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="152x152"
+            href="./assets/favicon/apple-icon-152x152.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="./assets/favicon/apple-icon-180x180.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="192x192"
+            href="./assets/favicon/android-icon-192x192.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="./assets/favicon/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="96x96"
+            href="./assets/favicon/favicon-96x96.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="./assets/favicon/favicon-16x16.png"
+        />
+        <link rel="manifest" href="./assets/favicon/manifest.json" />
+        <meta name="msapplication-TileColor" content="#ffffff" />
+        <meta
+            name="msapplication-TileImage"
+            content="./assets/favicon/ms-icon-144x144.png"
+        />
+        <meta name="theme-color" content="#ffffff" />
+
+        <!-- reset -->
+        <link rel="stylesheet" href="./assets/css/reset.css" />
+
+        <!-- font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+            rel="stylesheet"
+        />
+        <!-- icon -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+            integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+        <!-- styles -->
+        <link rel="stylesheet" href="./assets/css/styles.css" />
+
+        <title>Project Music Mp3</title>
+    </head>
+    <body>
+        <div class="container">
+            <!-- dashboard-->
+            <div class="dashboard">
+                <!-- header -->
+                <div class="header">
+                    <div class="header__icon-left header__icon">
+                        <i class="fa-solid fa-angle-down"></i>
+                    </div>
+                    <div class="header__content">
+                        <span class="header__note">Now Playing</span>
+                        <h2 class="header__name-music">Gio van aht</h2>
+                    </div>
+                    <div class="header__icon-right header__icon">
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
+                </div>
+                <!-- CD -->
+                <div class="cd">
+                    <img
+                        src="./assets/avatar/GIÓ VẪN HÁT LONG PHẠM.jpg"
+                        alt=""
+                    />
+                </div>
+                <!-- controls -->
+                <div class="controls">
+                    <div class="controls__btn btn-repeat">
+                        <i class="fa-solid fa-rotate-right"></i>
+                    </div>
+                    <div class="controls__btn btn-back">
+                        <i class="fa-solid fa-backward-step"></i>
+                    </div>
+                    <div class="controls__btn btn-pause">
+                        <i class="fa-solid fa-play"></i>
+                    </div>
+                    <div class="controls__btn btn-next">
+                        <i class="fa-solid fa-forward-step"></i>
+                    </div>
+                    <div class="controls__btn btn-random">
+                        <i class="fa-solid fa-shuffle"></i>
+                    </div>
+                </div>
+                <!-- thanh scroll -->
+                <input
+                    id="progress"
+                    class="progress"
+                    type="range"
+                    value="0"
+                    step="1"
+                    min="0"
+                    max="100"
+                />
+                <!-- audio -->
+                <audio id="audio" src=""></audio>
+            </div>
+            <!-- list music -->
+            <div class="list">
+                <!-- 
+                    <div class="list__item">
+                    <div class="list__item-avatar">
+                        <img
+                            src="./assets/avatar/GIÓ VẪN HÁT LONG PHẠM.jpg"
+                            alt=""
+                        />
+                    </div>
+                    <div class="list__item-info">
+                        <h3 class="list__item-name">Gio van hat</h3>
+                        <span class="list__item-singer">andiz</span>
+                    </div>
+                    <div class="list__item-icon">
+                        <i class="fa-solid fa-ellipsis"></i>
+                    </div>
+                </div> -->
+            </div>
+            <div class="taskbar">
+                <div class="taskbar__icon">
+                    <i class="fa-solid fa-house"></i>
+                </div>
+                <div class="taskbar__icon">
+                    <i class="fa-solid fa-music"></i>
+                </div>
+                <div class="taskbar__icon taskbar__pause">
+                    <i class="fa-solid fa-play"></i>
+                </div>
+                <div class="taskbar__icon">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                <div class="taskbar__icon">
+                    <i class="fa-solid fa-bars-staggered"></i>
+                </div>
+            </div>
+        </div>
+        <script src="./assets/javascript/main.js"></script>
+    </body>
+</html>
+<link rel="stylesheet" href="./assets/music/Nhu Ngay Hom Qua.mp3" />
+<link rel="stylesheet" href="./assets/avatar/như ngày hôm qua.webp" />

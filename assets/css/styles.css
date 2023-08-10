@@ -1,0 +1,211 @@
+* {
+    box-sizing: border-box;
+}
+:root {
+    --width: 450px;
+}
+html {
+    font-size: 62.5%;
+}
+body {
+    font-family: "Poppins", sans-serif;
+    font-size: 1.6rem;
+}
+
+.container {
+    width: var(--width);
+    background-color: #fff;
+    box-shadow: 0 0 10px #888;
+    margin: 40px auto;
+}
+
+.dashboard {
+    box-shadow: 0 0 10px #888;
+    padding: 10px 20px 10px;
+    position: fixed;
+    top: 0;
+    background-color: #fff;
+    width: var(--width);
+}
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header__icon {
+    font-size: 2rem;
+    color: #ed225d;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.header__content {
+    text-align: center;
+}
+.header__note {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #ed225d;
+    line-height: 2.5rem;
+}
+.header__name-music {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #333;
+    line-height: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.cd {
+    width: 200px;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+.cd > img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.controls {
+    display: flex;
+
+    margin-bottom: 10px;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.controls__btn {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+.controls__btn:hover:not(.btn-pause) {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+.controls__btn > i {
+    font-size: 2rem;
+}
+.btn-pause {
+    border-radius: 50%;
+    background-color: #ed225d;
+}
+.btn-pause > i {
+    font-size: 2.2rem;
+}
+
+.progress {
+    margin: 0 20px;
+    width: calc(100% - 40px);
+    cursor: pointer;
+}
+
+.list {
+    background-color: #f1f1f1;
+    padding: 20px 15px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+    margin-top: 380px;
+}
+
+.list__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    box-shadow: 0 0 10px #888;
+    padding: 10px 0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.5s linear;
+}
+.pink {
+    color: #ed225d;
+}
+.list__item.active {
+    background-color: #ed225d;
+}
+.list__item.active .list__item-name {
+    color: #f1f1f1;
+}
+.list__item.active .list__item-singer {
+    color: #333;
+}
+.list__item.active .list__item-icon {
+    color: #f1f1f1;
+}
+.list__item:hover:not(.active) {
+    background-color: rgba(113, 113, 113, 0.3);
+}
+.list__item-avatar {
+    width: 50px;
+    height: 50px;
+    margin: 0 15px;
+}
+.list__item-avatar > img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.list__item-info {
+    flex-grow: 1;
+}
+.list__item-name {
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: black;
+    line-height: 2.6rem;
+}
+.list__item-singer {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #999;
+}
+.list__item-icon {
+    padding: 0 20px;
+    cursor: pointer;
+}
+.list__item-icon > i {
+    font-size: 2rem;
+}
+
+/* taskbar */
+.taskbar {
+    position: fixed;
+    bottom: 0;
+    width: var(--width);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #a91695;
+    box-shadow: 0 0 10px #888;
+}
+.taskbar__icon > i {
+    font-size: 2rem;
+    padding: 20px 15px;
+    cursor: pointer;
+}
+.taskbar__pause {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #ed225d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@media (max-width: 739px) {
+    :root {
+        --width: 100%;
+    }
+}
