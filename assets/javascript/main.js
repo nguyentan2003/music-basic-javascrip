@@ -320,7 +320,10 @@ function handleEvents(musicNow) {
     // BACK oke
     btnBack.onclick = function () {
         var random = btnRandom.querySelector("i");
-        if (random.classList.contains("pink")) {
+        if (musicNow === 0) {
+            musicNow = objectMusics.length - 1;
+            setPlay(musicNow);
+        } else if (random.classList.contains("pink")) {
             // số random trong khoảng phần tử bài hát
 
             var numberRandom;
@@ -329,9 +332,6 @@ function handleEvents(musicNow) {
             } while (numberRandom >= musicNow);
             musicNow = numberRandom;
             setPlay(musicNow);
-        } else if (musicNow === 0) {
-            musicNow = objectMusics.length - 1;
-            setPlay(musicNow);
         } else {
             setPlay(--musicNow);
         }
@@ -339,16 +339,16 @@ function handleEvents(musicNow) {
     // NEXT oke
     btnNext.onclick = function () {
         var random = btnRandom.querySelector("i");
-        if (random.classList.contains("pink")) {
+        if (musicNow === objectMusics.length - 1) {
+            musicNow = 0;
+            setPlay(musicNow);
+        } else if (random.classList.contains("pink")) {
             // số random trong khoảng phần tử bài hát
             var numberRandom;
             do {
                 numberRandom = Math.floor(Math.random() * objectMusics.length);
             } while (numberRandom <= musicNow);
             musicNow = numberRandom;
-            setPlay(musicNow);
-        } else if (musicNow === objectMusics.length - 1) {
-            musicNow = 0;
             setPlay(musicNow);
         } else {
             setPlay(++musicNow);
