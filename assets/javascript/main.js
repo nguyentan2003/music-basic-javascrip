@@ -242,6 +242,24 @@ function renderListMusic(objectMusics) {
 }
 renderListMusic(objectMusics);
 
+// function music đã phát
+const arr = ["0"];
+function musicListened(arr, id) {
+    if (arr.length === objectMusics.length) {
+        for (let i = 1; i <= objectMusics.length; i++) {
+            arr.pop();
+        }
+        arr.push(`${id}`);
+
+        return true;
+    } else if (arr.includes(`${id}`)) {
+        return false;
+    } else {
+        arr.push(`${id}`);
+        return true;
+    }
+}
+
 // function Scroll
 function eventScroll() {
     document.onscroll = function () {
@@ -267,7 +285,7 @@ function runAudio() {
         // currentTime là thời lượng hiện tại đã chạy được
         // duration là tổng thời gian
         value = Math.floor(
-            (audioElement.currentTime / audioElement.duration) * 100
+            (audioElement.currentTime / audioElement.duration) * 1000
         );
         if (value || value == 0) progress.value = String(value);
     };
@@ -275,7 +293,7 @@ function runAudio() {
     //  gán ngược lại giá trị khi kéo
     progress.onchange = function () {
         audioElement.currentTime =
-            (Number(progress.value) / 100) * audioElement.duration;
+            (Number(progress.value) / 1000) * audioElement.duration;
     };
 }
 runAudio();
@@ -320,17 +338,17 @@ function handleEvents(musicNow) {
     // BACK oke
     btnBack.onclick = function () {
         var random = btnRandom.querySelector("i");
-        if (musicNow === 0) {
-            musicNow = objectMusics.length - 1;
-            setPlay(musicNow);
-        } else if (random.classList.contains("pink")) {
+        if (random.classList.contains("pink")) {
             // số random trong khoảng phần tử bài hát
 
             var numberRandom;
             do {
                 numberRandom = Math.floor(Math.random() * objectMusics.length);
-            } while (numberRandom >= musicNow);
+            } while (!musicListened(arr, numberRandom));
             musicNow = numberRandom;
+            setPlay(musicNow);
+        } else if (musicNow === 0) {
+            musicNow = objectMusics.length - 1;
             setPlay(musicNow);
         } else {
             setPlay(--musicNow);
@@ -339,16 +357,16 @@ function handleEvents(musicNow) {
     // NEXT oke
     btnNext.onclick = function () {
         var random = btnRandom.querySelector("i");
-        if (musicNow === objectMusics.length - 1) {
-            musicNow = 0;
-            setPlay(musicNow);
-        } else if (random.classList.contains("pink")) {
+        if (random.classList.contains("pink")) {
             // số random trong khoảng phần tử bài hát
             var numberRandom;
             do {
                 numberRandom = Math.floor(Math.random() * objectMusics.length);
-            } while (numberRandom <= musicNow);
+            } while (!musicListened(arr, numberRandom));
             musicNow = numberRandom;
+            setPlay(musicNow);
+        } else if (musicNow === objectMusics.length - 1) {
+            musicNow = 0;
             setPlay(musicNow);
         } else {
             setPlay(++musicNow);
@@ -409,6 +427,10 @@ function activeMusic(object) {
     var listItems = $$(".list__item");
     var setActive = listItems[object.id];
     setActive.classList.add("active");
+    $(".list__item.active").scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+    });
 }
 
 // function chạy 1 bài hát nào đó
